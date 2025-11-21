@@ -1,78 +1,86 @@
-AgriYield Predictor 🌾
+**AgriYield Predictor 🌾**
 
 This is an end-to-end machine learning project to forecast agricultural crop yield (in Tons / Hectare) based on environmental, chemical, and soil data.
 
 This project uses a Random Forest Regressor, trained on a processed dataset, and serves the final model via a Flask web application with a cutting-edge, responsive UI.
 
-📸 Final UI Demo
+**📸 Final UI Demo**
 
 | Light Mode (Form) | Dark Mode (Prediction Result) |
 | :---: | :---: |
 | ![AgriYield Predictor Light Mode UI](demo/Screenshot%20%28205%29.png) | ![AgriYield Predictor Dark Mode UI](demo/Screenshot%20%28207%29.png) |
 
-✨ Core Features:
+**🚀 Deployment**
+**Current Status:** Locally Deployed (Localhost)
 
-ML-Powered Predictions: Provides real-time crop yield forecasts using a trained Random Forest model.
+This application involves machine learning models and is currently optimized for local execution.
 
-Dynamic UI: A modern, 3-step wizard form to guide the user through data entry.
+**To test the application:**
+Please follow the "How to Run Locally" instructions at the bottom of this README. Once the Flask server is running, the application will be accessible at `http://127.0.0.1:5000/` on your local machine.
 
-Immersive Design: Features a full-screen, looping video background with a semi-transparent "frosted glass" UI.
+**✨ Core Features:**
 
-Responsive & Accessible: Built with Bootstrap, the UI is fully responsive and supports both Light and Dark modes.
+- **ML-Powered Predictions:** Provides real-time crop yield forecasts using a trained Random Forest model.
 
-Flask Backend: A lightweight, robust Python backend to handle prediction requests.
+- **Dynamic UI:** A modern, 3-step wizard form to guide the user through data entry.
 
-💻 Tech Stack:
+- **Immersive Design:** Features a full-screen, looping video background with a semi-transparent "frosted glass" UI.
 
-Backend: Python, Flask
+- **Responsive & Accessible:** Built with Bootstrap, the UI is fully responsive and supports both Light and Dark modes.
 
-Machine Learning: Scikit-learn, Pandas, NumPy
+- **Flask Backend:** A lightweight, robust Python backend to handle prediction requests.
 
-Frontend: HTML, CSS (Bootstrap 5), JavaScript (ES6+)
+**💻 Tech Stack:**
 
-Data Analysis: Jupyter Notebooks
+- **Backend:** Python, Flask
 
-🤖 Machine Learning Pipeline:
+- **Machine Learning:** Scikit-learn, Pandas, NumPy
+
+- **Frontend:** HTML, CSS (Bootstrap 5), JavaScript (ES6+)
+
+- **Data Analysis:** Jupyter Notebooks
+
+**🤖 Machine Learning Pipeline:**
 
 The project follows a complete, end-to-end data science workflow, documented in the 03_notebooks/ folder.
 
-1. Data Collection & Cleaning
+**1. Data Collection & Cleaning**
 
-Source: Merged two disparate datasets: crop_yield.csv (state-level yield data) and Soil Data.csv (district-level soil metrics).
+- **Source:** Merged two disparate datasets: crop_yield.csv (state-level yield data) and Soil Data.csv (district-level soil metrics).
 
-Cleaning: To resolve the different granularities, the soil data was aggregated from the district to the state level using its mean(). The two datasets were then merged into a single, clean file.
+- **Cleaning:** To resolve the different granularities, the soil data was aggregated from the district to the state level using its mean(). The two datasets were then merged into a single, clean file.
 
-2. Feature Engineering & EDA
+**2. Feature Engineering & EDA**
 
-Feature Selection: 11 features were selected for modeling.
+- **Feature Selection:** 11 features were selected for modeling.
 
-Data Leakage Prevention: Critically, Area and Production were removed, as they are used to calculate the target variable (Yield) and would cause data leakage.
+- **Data Leakage Prevention:** Critically, Area and Production were removed, as they are used to calculate the target variable (Yield) and would cause data leakage.
 
-Encoding: Categorical features (Crop, State, Season) were converted using LabelEncoder. The encoder mappings were then saved to 05_models/categorical_encodings.json so the production app.py could use them to transform live user input.
+- **Encoding:** Categorical features (Crop, State, Season) were converted using LabelEncoder. The encoder mappings were then saved to 05_models/categorical_encodings.json so the production app.py could use them to transform live user input.
 
-3. Model Training & Selection
+**3. Model Training & Selection**
 
-Comparison: Three models were trained and evaluated: Linear Regression, XGBoost, and Random Forest.
+- **Comparison:** Three models were trained and evaluated: Linear Regression, XGBoost, and Random Forest.
 
-Final Model: The Random Forest Regressor was selected as the final model, as it provided the best performance and generalization on the unseen test data.
+- **Final Model:** The Random Forest Regressor was selected as the final model, as it provided the best performance and generalization on the unseen test data.
 
-Performance: The final model achieved an R-squared (R²) score of 0.98 on the test set.
+- **Performance:** The final model achieved an R-squared (R²) score of 0.98 on the test set.
 
-Transparency: Feature importance analysis showed that Crop_encoded was the most significant predictor of yield.
+- **Transparency:** Feature importance analysis showed that Crop_encoded was the most significant predictor of yield.
 
-4. Deployment
+**4. Deployment**
 
 The final, trained final_model.pkl and the categorical_encodings.json are loaded by the Flask app.py script. The app serves an index.html template and provides a /predict API endpoint that validates, encodes, and processes user input in real-time.
 
-How to Run Locally?:
+**How to Run Locally?:**
 
-Clone the repository:
+**Clone the repository:**
 
-git clone [https://github.com/PB-byte393/AgriYield_Predictor.git](https://github.com/PB-byte393/AgriYield_Predictor.git)
-cd AgriYield_Predictor
+git clone [https://github.com/PB-byte393/AI_AgriYield_Predictor-Pranjal.git](https://github.com/PB-byte393/AI_AgriYield_Predictor-Pranjal.git)
+cd AgriYield_Predictor-Pranjal
 
 
-Create and activate a virtual environment:
+**Create and activate a virtual environment:**
 
 # Windows
 python -m venv venv
@@ -83,16 +91,16 @@ python3 -m venv venv
 source venv/bin/activate
 
 
-Install dependencies:
-(Note: For a real project, you should create a requirements.txt file by running pip freeze > requirements.txt. For now, install these manually.)
+**Install dependencies:**
 
 pip install Flask pandas numpy scikit-learn xgboost joblib
 
 
-Run the Flask application:
+**Run the Flask application:**
 
 python app.py
 
 
-Open in your browser:
+**Open in your browser:**
+
 Navigate to http://127.0.0.1:5000
