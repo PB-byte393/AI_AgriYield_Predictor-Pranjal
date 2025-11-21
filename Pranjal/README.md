@@ -93,7 +93,7 @@ source venv/bin/activate
 
 **Install dependencies:**
 
-pip install Flask pandas numpy scikit-learn xgboost joblib
+pip install Flask pandas numpy scikit-learn joblib
 
 
 **Run the Flask application:**
