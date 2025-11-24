@@ -4,6 +4,8 @@ This is an end-to-end machine learning project to forecast agricultural crop yie
 
 This project uses a Random Forest Regressor, trained on a processed dataset, and serves the final model via a Flask web application with a cutting-edge, responsive UI.
 
+View Live Application: https://agriyield-predictor.onrender.com/
+
 **📸 Final UI Demo**
 
 | Light Mode (Form) | Dark Mode (Prediction Result) |
@@ -68,10 +70,6 @@ The project follows a complete, end-to-end data science workflow, documented in 
 
 - **Transparency:** Feature importance analysis showed that Crop_encoded was the most significant predictor of yield.
 
-**4. Deployment**
-
-The final, trained final_model.pkl and the categorical_encodings.json are loaded by the Flask app.py script. The app serves an index.html template and provides a /predict API endpoint that validates, encodes, and processes user input in real-time.
-
 **How to Run Locally?:**
 
 **Clone the repository:**
@@ -93,7 +91,7 @@ source venv/bin/activate
 
 **Install dependencies:**
 
-pip install Flask pandas numpy scikit-learn joblib
+pip install -r requirements.txt
 
 
 **Run the Flask application:**
@@ -101,6 +99,12 @@ pip install Flask pandas numpy scikit-learn joblib
 python app.py
 
 
-**Open in your browser:**
+**Deployment**
 
-Navigate to http://127.0.0.1:5000
+This application is deployed on Render.
+
+Build Command: pip install -r requirements.txt
+
+Start Command: gunicorn app:app
+
+Environment: Python 3
