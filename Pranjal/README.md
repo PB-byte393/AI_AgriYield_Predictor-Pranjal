@@ -12,14 +12,6 @@ View Live Application: https://agriyield-predictor.onrender.com/
 | :---: | :---: |
 | ![AgriYield Predictor Light Mode UI](demo/Screenshot%20%28205%29.png) | ![AgriYield Predictor Dark Mode UI](demo/Screenshot%20%28207%29.png) |
 
-**🚀 Deployment**
-**Current Status:** Locally Deployed (Localhost)
-
-This application involves machine learning models and is currently optimized for local execution.
-
-**To test the application:**
-Please follow the "How to Run Locally" instructions at the bottom of this README. Once the Flask server is running, the application will be accessible at `http://127.0.0.1:5000/` on your local machine.
-
 **✨ Core Features:**
 
 - **ML-Powered Predictions:** Provides real-time crop yield forecasts using a trained Random Forest model.
